@@ -27,7 +27,7 @@ module.exports = (grunt) ->
       else
         embedder = new ResourceEmbedder srcFile, @options()
         embedder.get (output, warnings) ->
-          grunt.file.write file.dest, output
+          grunt.file.write file.dest, output, {encoding: 'ISO-8859-1'}
           if warnings?
             grunt.log.warn warning for warning in warnings
           grunt.log.ok "File \"#{file.dest}\" created."
